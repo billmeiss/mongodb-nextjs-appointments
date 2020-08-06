@@ -212,16 +212,18 @@ function Appointment({ appointment }) {
                 <a className="p-1 font-semibold text-green-700">{moment.unix(appointment.date).format('hh:mm a')}</a>
                 {currentUser && (appointment.creatorId === currentUser._id.toString() ? 
                 <>
-                  <button onClick={() => {
-                    isEditing ? setIsEditing(false) : setIsEditing(true)
-                  }} type="button" className="inline-block shadow bg-green-200 hover:bg-green-300 rounded-full lg:ml-2 xl:ml-2 md:ml-2 px-2 py-1 text-sm font-semibold text-green-700">
-                    <svg className="fill-current block inline -mt-1 w-4 h-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                  </button> 
-                  <button onClick={() => {
-                    isModal ? setIsModal(false) : setIsModal(true)
-                  }} type="button" className="inline-block shadow bg-red-200 hover:bg-red-300 rounded-full ml-2 px-2 py-1 text-sm font-semibold text-red-700">
-                    <svg className="fill-current block inline -mt-1 w-4 h-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                  </button>
+                  <div className="flex flex-row">
+                    <button onClick={() => {
+                      isEditing ? setIsEditing(false) : setIsEditing(true)
+                    }} type="button" className="inline-block shadow bg-green-200 hover:bg-green-300 rounded-full lg:ml-2 xl:ml-2 md:ml-2 px-2 py-1 text-sm font-semibold text-green-700">
+                      <svg className="fill-current block inline -mt-1 w-4 h-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    </button> 
+                    <button onClick={() => {
+                      isModal ? setIsModal(false) : setIsModal(true)
+                    }} type="button" className="inline-block shadow bg-red-200 hover:bg-red-300 rounded-full ml-2 px-2 py-1 text-sm font-semibold text-red-700">
+                      <svg className="fill-current block inline -mt-1 w-4 h-4" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    </button>
+                  </div>
                 </>
                 : null)}
               </p>
