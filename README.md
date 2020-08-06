@@ -5,6 +5,9 @@
 - MongoDB Database
 - TailwindCSS UI Design
 - CRUD Operations for both Users and Appointments
+- Email Verification
+- Change Password
+- Forgot Password
 
 
 ## Getting Started
