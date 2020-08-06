@@ -25,7 +25,7 @@ const IndexPage = () => {
             <AppointmentEditor />
           </div>
           <div className="mr-6 items-center mt-8 flex flex-col">
-            {/* <Appointments /> */}
+            <Appointments />
           </div>
         </div>
       </div>

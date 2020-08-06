@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps }) {
           <Head>
             <title>Next.js + MongoDB Apppointments</title>
           </Head>
-          <Component {...pageProps} className="font-serif"/>
+          <Component {...pageProps} />
         </Layout>
       </div>
     </>

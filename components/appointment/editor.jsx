@@ -59,7 +59,7 @@ export default function AppointmentEditor() {
           </div>
           <div className="md:w-2/3">
             <input
-              className="bg-white appearance-none border-2 border-gray-200 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+              className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
               name="date"
               type="datetime-local"
               min={moment().format('YYYY-MM-DDTHH:mm')}
@@ -74,7 +74,7 @@ export default function AppointmentEditor() {
           </div>
           <div className="md:w-2/3">
             <input
-              className="bg-white appearance-none border-2 border-gray-200 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+              className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
               name="note"
               type="text"
               placeholder="Let's hang out"

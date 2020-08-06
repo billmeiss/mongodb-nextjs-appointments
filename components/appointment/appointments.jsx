@@ -13,9 +13,6 @@ function Appointment({ appointment }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isModal, setIsModal] = useState(false);
-
-  currentUser && console.log(currentUser);
-  // console.log(appointment.creatorId)
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -118,7 +115,7 @@ function Appointment({ appointment }) {
               </div>
               <div className="md:w-2/3">
                 <input
-                  className="shadow-inner bg-gray-200 appearance-none border-2 border-gray-200 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+                  className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
                   id="date"
                   name="date"
                   type="datetime-local"
@@ -133,7 +130,7 @@ function Appointment({ appointment }) {
               </div>
               <div className="md:w-2/3">
                 <input
-                  className="shadow-inner bg-gray-200 appearance-none border-2 border-gray-200 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+                  className="bg-gray-200 appearance-none border border-gray-300 rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
                   id="note"
                   name="note"
                   type="text"
@@ -149,10 +146,16 @@ function Appointment({ appointment }) {
                   </label>
                 </div>
                 <div className="md:w-2/3">
-                  <select name="partner" className="block shadow-inner appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                  <select name="partner" className="form-select rounded h-full py-0 md:pl-2 md:pr-7 font-bold bg-transparent text-gray-900" id="grid-state">
                     {users.map((user) => {
                       return (
-                        <option key={user._id} value={user._id}>{user.name}</option>
+                        <option 
+                          className="text-gray-800 font-semibold rounded" 
+                          key={user._id} 
+                          value={user._id}
+                        >
+                          {user.name}
+                        </option>
                       );
                     })}
                   </select>
@@ -274,8 +277,6 @@ export default function Appointments({ creatorId }) {
   const {
     data, error, size, setSize
   } = useAppointmentPages({ creatorId });
-
-  const [currentUser] = useCurrentUser();
 
   const appointments = data ? data.reduce((acc, val) => [...acc, ...val.appointments], []) : [];
   const isLoadingInitialData = !data && !error;
