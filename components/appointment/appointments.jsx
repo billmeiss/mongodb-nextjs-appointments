@@ -291,7 +291,7 @@ export default function Appointments({ creatorId }) {
       {appointments.map((appointment) => <Appointment key={appointment._id} appointment={appointment} />)}
       {/* Empty State Design */}
       {!isLoadingMore && (appointments.length === 0) ? 
-        <div className="rounded shadow w-64 p-5 bg-gray-200 text-purple-600">
+        <div className="rounded shadow-lg w-screen sm:w-full md:w-full lg:w-full p-5 bg-gray-200 text-purple-600">
           <p className="font-semibold text-md text-center">We can't find any appointments.</p>
           <img src="/checking-box.svg" className="w-full h-full" alt='checking boxes' />
           <p className="font-md text-gray-700 text-sm mt-2 text-center">Go break the ice and make an <Link href="/"><a className="text-purple-700 hover:text-purple-800 font-bold">appointment</a></Link></p>

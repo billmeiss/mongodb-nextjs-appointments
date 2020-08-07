@@ -26,11 +26,11 @@ export default function AppointmentEditor() {
     e.preventDefault();
     const body = {
       date: e.currentTarget.date.value,
+      time: e.currentTarget.time.value,
       note: e.currentTarget.note.value,
       partnerId: e.currentTarget.partner.value
     };
-    if (!e.currentTarget.date.value) return;
-    e.currentTarget.date.value = '';
+    if (!e.currentTarget.date.value || !e.currentTarget.time.value) return;
     e.currentTarget.note.value = '';
     e.currentTarget.partner.value = '';
     const res = await fetch('/api/appointments', {
@@ -51,28 +51,43 @@ export default function AppointmentEditor() {
         <strong className="font-bold text-center">{msg}</strong>
       </div> : null}
       <form onSubmit={handleSubmit} className="w-full max-w-sm" autoComplete="off">
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label className="block text-gray-700 font-semibold md:text-right mb-1 md:mb-0 pr-4" htmlFor="date">
-              Date and Time
+        <div className="flex flex-col lg:flex-row items-center mb-6">
+          <div className="w-full lg:w-1/5">
+            <label className="block text-gray-700 font-semibold mb-1 pr-4" htmlFor="date">
+              Date
             </label>
           </div>
-          <div className="md:w-2/3">
+          <div className="w-full lg:w-4/5">
             <input
               className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
               name="date"
-              type="datetime-local"
-              min={moment().format('YYYY-MM-DDTHH:mm')}
+              type="date"
+              min={moment().format('YYYY-MM-DD')}
             />
           </div>
         </div>
-        <div className="md:flex md:items-center mb-6">
-          <div className="md:w-1/3">
-            <label className="block text-gray-700 font-semibold md:text-right mb-1 md:mb-0 pr-4" htmlFor="note">
+        <div className="flex flex-col lg:flex-row items-center mb-6">
+          <div className="w-full lg:w-1/5">
+            <label className="block text-gray-700 font-semibold mb-1 pr-4" htmlFor="date">
+              Time
+            </label>
+          </div>
+          <div className="w-full lg:w-4/5">
+            <input
+              className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+              name="time"
+              type="time"
+              min={moment().format('HH:mm')}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row items-center mb-6">
+          <div className="w-full lg:w-1/5">
+            <label className="block text-gray-700 font-semibold mb-1 pr-4" htmlFor="note">
               Note
             </label>
           </div>
-          <div className="md:w-2/3">
+          <div className="w-full lg:w-4/5">
             <input
               className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
               name="note"
@@ -81,16 +96,16 @@ export default function AppointmentEditor() {
             />
           </div>
         </div>
-        <div className="md:flex md:items-center mb-6">
+        <div className="flex flex-col lg:flex-row items-center mb-6">
           {users ? 
           <>
-            <div className="md:w-1/3">
-              <label className="block text-gray-700 font-semibold md:text-right mb-1 md:mb-0 pr-4" htmlFor="partner">
+            <div className="w-full lg:w-1/5">
+              <label className="block text-gray-700 font-semibold mb-1 pr-4" htmlFor="partner">
                 Partner
               </label>
             </div>
-            <div className="md:w-2/3">
-              <select name="partner" className="form-select rounded h-full py-0 md:pl-2 md:pr-7 font-bold bg-transparent text-gray-900" id="grid-state">
+            <div className="w-full lg:w-4/5">
+              <select name="partner" className="form-select rounded h-full py-2 px-4 font-bold bg-transparent text-gray-900" id="grid-state">
                 {users.map((user) => {
                   return (
                     <option className="text-gray-800 font-semibold rounded" key={user._id} value={user._id}>{user.name}</option>
@@ -102,8 +117,8 @@ export default function AppointmentEditor() {
           : null}
         </div>
         <div className="md:flex md:items-center">
-          <div className="md:w-1/3"></div>
-          <div className="md:w-2/3">
+          <div className="md:w-1/5"></div>
+          <div className="md:w-4/5">
             <button className="shadow bg-green-400 hover:bg-green-300 focus:shadow-outline focus:outline-none text-white font-semibold py-2 px-4 rounded-lg" type="submit">
               Create Appointment
             </button>

@@ -29,7 +29,9 @@ handler.post(async (req, res) => {
     return res.status(401).send('unauthenticated');
   }
 
-  const { date, note, partnerId } = req.body;
+  const { date, time, note, partnerId } = req.body;
+  const dateUnix = moment(date + ' ' + time).format('X');
+  console.log(dateUnix)
 
   const creatorId = await req.user._id.toString();
 
@@ -38,9 +40,10 @@ handler.post(async (req, res) => {
   }
 
   if (!date) return res.status(400).send('You must provide a date');
+  if (!time) return res.status(400).send('You must provide a time');
 
   const appointment = {
-    date: moment(date).format('X'),
+    date: dateUnix,
     note,
     createdAt: new Date(),
     creatorId,

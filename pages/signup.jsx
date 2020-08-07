@@ -44,13 +44,13 @@ const SignupPage = () => {
       <Head>
         <title>Sign up</title>
       </Head>
-      <div className="flex items-center flex-col max-w-sm w-full lg:max-w-full lg:flex pt-4">
+      <div className="flex items-center flex-row md:flex-col lg:flex-col max-w-screen lg:max-w-full pt-4">
         <form onSubmit={handleSubmit} className="bg-white shadow-xl rounded mb-8">
           {errorMsg ? <p className="px-8 pt-6 pb-8 mb-2 text-red-500 text-xs italic">{errorMsg}</p> : null}
           <div className="w-full rounded border-t-4 border-green-400 bg-green-100">
             <h1 className="block text-green-800 px-8 pt-4 pb-4 text-lg font-bold mb-2">Sign up</h1>
           </div>
-          <div className="px-8 pt-6 pb-8">
+          <div className="px-4 w-full lg:px-8 pt-6 pb-8">
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="name">
                 Full Name

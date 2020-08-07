@@ -185,11 +185,11 @@ const ProfileSection = () => {
             ) : null}
             <form onSubmit={handleSubmit}>
               <div className="flex">
-                <div className="w-1/4 m-5">
+                <div className="w-1/4 m-5 hidden sm:block md:block lg:block">
                   <p className="text-base font-semibold text-gray-700">Profile</p>
                   <p className="text-sm font-light text-gray-500">This information will be shown publicly</p>
                 </div>
-                <div className="w-3/4 m-5">
+                <div className="w-full sm:w-3/4 md:w-3/4 lg:w-3/4 m-5">
                   <div className="flex flex-col">
                     <div>
                       <label className="text-md font-medium leading-normal text-gray-700" htmlFor="name">
@@ -242,10 +242,10 @@ const ProfileSection = () => {
             </form>
             <div className="py-5 mt-5 border-t-2 border-gray-300">
               <div className="flex justify-center">
-                <div className="m-5 w-1/4">
+                <div className="m-5 hidden sm:block md:block lg:block w-1/4">
                   <p className="text-base font-semibold text-gray-700">Change password</p>
                 </div>
-                <div className="m-5 w-3/4">
+                <div className="m-5 w-full sm:w-3/4 md:w-3/4 lg:w-3/4">
                   <form onSubmit={handleSubmitPasswordChange}>
                     <label htmlFor="oldpassword">
                       <p className="text-md font-semibold leading-normal text-gray-700">Old Password</p>

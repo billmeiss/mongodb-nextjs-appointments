@@ -18,13 +18,13 @@ const IndexPage = () => {
           </span>
           <span className="text-gray-200">Have a wonderful day.</span>
         </div>
-        <div className="mr-6 items-center w-1/2 mt-8 flex-shrink-0 flex flex-col">
-          <div className="p-8 overflow-y-auto flex flex-col justify-between bg-gray-100
-            rounded shadow border-t-4 border-green-300"
+        <div className="mr-6 items-center w-full mt-8 flex-shrink-0 flex flex-col">
+          <div className="p-6 lg:p-10 md:p-8 overflow-y-auto flex flex-col justify-between bg-gray-100
+            rounded shadow border-t-4 border-green-300 min-w-64 lg:w-2/5 items-center" 
           >
             <AppointmentEditor />
           </div>
-          <div className="mr-6 w-full items-center mt-8 flex flex-col">
+          <div className="max-w-screen-md p-8 items-center mt-8 flex flex-col">
             <Appointments />
           </div>
         </div>

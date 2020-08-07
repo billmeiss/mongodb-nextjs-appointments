@@ -41,12 +41,12 @@ const LoginPage = () => {
       <Head>
         <title>Sign in</title>
       </Head>
-      <div className="flex items-center flex-col max-w-sm w-full lg:max-w-full lg:flex pt-4">
+      <div className="flex items-center flex-row lg:flex-col min-w-screen w-full lg:max-w-full lg:flex pt-4">
         <form onSubmit={onSubmit} className="bg-white shadow-lg rounded mb-8">
           <div className="w-full rounded border-t-4 border-purple-400 bg-purple-100">
             <h1 className="block text-purple-800 px-8 pt-4 pb-4 text-lg font-bold mb-2">Sign In</h1>
           </div>
-          <div className="px-8 pt-6 pb-8">
+          <div className="px-4 lg:px-8 pt-6 pb-8">
             {errorMsg ? <p className="text-red-500 text-xs italic">{errorMsg}</p> : null}
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
@@ -73,7 +73,7 @@ const LoginPage = () => {
               </label>
             </div>
           </div>
-          <div className="flex items-center justify-between bg-gray-100 px-8 pt-4 pb-4 rounded shadow">
+          <div className="flex flex-col md:flex-row lg:flex-row sm:flex-row items-center justify-between bg-gray-100 px-8 pt-4 pb-4 rounded shadow">
             {isUpdating 
               ?
               <button type="submit" className="shadow opacity-50 cursor-not-allowed bg-purple-200 hover:bg-purple-300 text-purple-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -85,7 +85,7 @@ const LoginPage = () => {
               </button>
             }
               <Link href="/forgot-password">
-                <a className="text-shadow inline-block align-baseline font-bold text-sm text-purple-500 hover:text-purple-800">
+                <a className="text-shadow inline-block mt-4 sm:mt-0 md:mt-0 lg:mt-0 align-baseline font-bold text-sm text-purple-500 hover:text-purple-800">
                   Forgot Password?
                 </a>
               </Link>

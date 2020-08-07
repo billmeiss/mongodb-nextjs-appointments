@@ -20,15 +20,15 @@ export default function UserPage({ data }) {
       <Head>
         <title>{name}</title>
       </Head>
-      <div className="max-w-sm w-full flex flex-wrap items-center lg:max-w-full lg:flex">
-        <div className="m-10">
-          <div className="bg-gray-100 h-auto w-auto rounded-lg border border-gray-100 max-w-sm rounded overflow-hidden shadow-lg justify-between leading-normal">
+      <div className="w-full flex flex-col lg:flex-row items-center ">
+        <div className="m-2 lg:m-10">
+          <div className="bg-gray-100 h-full w-screen sm:w-full md:w-full lg:w-full rounded-lg border border-gray-100 rounded shadow-lg justify-between leading-normal">
             <img className="h-full w-full bg-cover" src={profilePicture} alt={name} />
             <div className="px-6 py-4">
               <div className="font-bold text-xl text-gray-900 mb-2"> 
                 {name}
               </div>
-              <div className="mb-2">
+              <div className="mb-3">
                 {isCurrentUser && (
                 <Link href="/settings">
                   <button type="button" className="inline-block bg-green-200 hover:bg-green-300 rounded-full px-3 py-1 text-sm font-semibold text-green-700">
@@ -39,14 +39,14 @@ export default function UserPage({ data }) {
                 )}
               </div>
               <p className="font-semibold text-gray-600 text-md">Bio</p>
-              <p className="text-gray-800 text-md font-semibold mb-2">{bio ? bio : 'No Bio Found :('}</p>
+              <p className="text-gray-800 text-md font-semibold mb-4">{bio ? bio : 'No Bio Found :('}</p>
               <p className="text-gray-500 text-md font-semibold">
                 {email ? {email} : 'Email has not been verified yet'}
               </p>
             </div>
           </div>
         </div>
-        <div className="m-10 flex flex-col items-center">
+        <div className="m-10 flex w-full flex-col items-center">
           <p className="font-bold text-xl rounded-lg shadow px-3 py-1 bg-green-200 text-green-800 mb-4">My Appointments</p>
           <Appointments creatorId={user._id} />
         </div>
