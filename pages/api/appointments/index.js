@@ -31,7 +31,6 @@ handler.post(async (req, res) => {
 
   const { date, time, note, partnerId } = req.body;
   const dateUnix = moment(date + ' ' + time).format('X');
-  console.log(dateUnix)
 
   const creatorId = await req.user._id.toString();
 
@@ -59,7 +58,9 @@ handler.patch(async (req, res) => {
     return res.status(401).send('unauthenticated');
   }
 
-  const { appointmentId, date, note, partnerId, creatorId } = req.body;
+  const { appointmentId, date, time, note, partnerId, creatorId } = req.body;
+
+  const dateUnix = moment(date + ' ' + time).format('X');
 
   if (req.user._id.toString() !== creatorId) {
     return res.status(401).send('unauthorised access');
@@ -72,7 +73,7 @@ handler.patch(async (req, res) => {
       { _id: ObjectId(appointmentId) },
       {
         $set: {
-          ...(date && { date: moment(date).format('X') }),
+          ...(date && { date: dateUnix }),
           ...(note && { note }),
           ...(partnerId && { partnerId })
         }

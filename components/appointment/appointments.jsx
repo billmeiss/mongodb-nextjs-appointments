@@ -18,6 +18,7 @@ function Appointment({ appointment }) {
     event.preventDefault();
     const body = {
       date: event.currentTarget.date.value,
+      time: event.currentTarget.time.value,
       note: event.currentTarget.note.value,
       partnerId: event.currentTarget.partner.value,
       creatorId: appointment.creatorId,
@@ -61,7 +62,7 @@ function Appointment({ appointment }) {
               <div className="sm:flex sm:items-start">
                 <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                   <svg className="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
                 </div>
                 <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -109,16 +110,31 @@ function Appointment({ appointment }) {
             </div>
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">
-                <label className="block text-gray-700 font-semibold md:text-right mb-1 md:mb-0 pr-4" htmlFor="date">
-                  Date and Time
+                <label className="block text-gray-700 md:text-right font-semibold mb-1 pr-4" htmlFor="date">
+                  Date
                 </label>
               </div>
               <div className="md:w-2/3">
                 <input
                   className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
-                  id="date"
                   name="date"
-                  type="datetime-local"
+                  type="date"
+                  min={moment().format('YYYY-MM-DD')}
+                />
+              </div>
+            </div>
+            <div className="md:flex md:items-center mb-6">
+              <div className="md:w-1/3">
+                <label className="block text-gray-700 md:text-right font-semibold mb-1 pr-4" htmlFor="date">
+                  Time
+                </label>
+              </div>
+              <div className="md:w-2/3">
+                <input
+                  className="bg-gray-200 appearance-none border border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500" 
+                  name="time"
+                  type="time"
+                  min={moment().format('HH:mm')}
                 />
               </div>
             </div>

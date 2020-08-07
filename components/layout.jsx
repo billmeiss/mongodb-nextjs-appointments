@@ -27,19 +27,19 @@ export default ({ children }) => {
         <nav className="flex items-center justify-between flex-wrap bg-gray-800 lg:bg-transparent py-6 px-10">
           <div className="flex items-center flex-shrink-0 text-gray-100 mr-6">
             <span className="font-semibold text-xl flex flex-row tracking-tight text-shadow-lg text-gray-200">
-              <div class="flex items-center lg:hidden block">
+              <div className="flex items-center lg:hidden block">
                 <button 
                   onClick={() => {
                     drop ? setDrop(false) : setDrop(true)
                   }}
                   type="button"
-                  class="inline-flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false"
+                  className="inline-flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out" aria-label="Main menu" aria-expanded="false"
                 >
-                  <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
-                  <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
@@ -52,7 +52,7 @@ export default ({ children }) => {
             </span>
           </div>
           {drop ? 
-          <div class="lg:hidden">
+          <div className="lg:hidden">
             {!user ? (
             <>
               <div className="w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto">
