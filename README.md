@@ -8,7 +8,7 @@ View the demo at https://mongodb-nextjs-appointments.vercel.app/
 - TailwindCSS UI Design
 - CRUD Operations for both Users and Appointments
 - Email Verification
-- Change Password
+- Change Passwords
 - Forgot Password
 
 
