@@ -1,6 +1,6 @@
 View the demo at https://mongodb-nextjs-appointments.vercel.app/
 
-It's pretty buggy, thinking of redoing the project :)
+[OUTDATED]
 
 ## Features
 - User Authentication by Passport.js
