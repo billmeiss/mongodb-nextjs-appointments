@@ -1,5 +1,7 @@
 View the demo at https://mongodb-nextjs-appointments.vercel.app/
 
+It's pretty buggy, thinking of redoing the project :)
+
 ## Features
 - User Authentication by Passport.js
 - SWR Hooks
